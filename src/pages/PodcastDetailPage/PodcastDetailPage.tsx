@@ -15,7 +15,7 @@ import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
 //Styles
 import styles from "./PodcastDetailPage.module.scss";
 
-const PodcastDetailPage = () => {
+const PodcastDetailPage = (): any => {
     const params = useParams();
 
     const [loadingPodcasts, setLoadingPodcasts] = useState(true);

@@ -18,7 +18,7 @@ import EpisodeDetailBox from "../../components/EpisodeDetailBox/EpisodeDetailBox
 
 
 
-const EpisodeDetailPage = () => {
+const EpisodeDetailPage = (): any => {
     const params = useParams();
 
     const [loadingPodcasts, setLoadingPodcasts] = useState(true);
@@ -76,6 +76,7 @@ const EpisodeDetailPage = () => {
             console.log(e);
             setLoadingEpisodes(false);
             setLoadingPodcasts(false);
+            throw(e)
         }
     }, []);
 

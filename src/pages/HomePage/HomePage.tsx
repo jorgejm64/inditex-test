@@ -12,7 +12,7 @@ import { setLocalStorageWithExpiry, getLocalStorage } from "../../utils/localSto
 //Styles
 import styles from "./HomePage.module.scss";
 
-const HomePage = () => {
+const HomePage = (): any => {
     const [query, setQuery] = useState("");
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState<any>();
