@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+
+table.episodesTable {
+    border-spacing: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: $floatingDetailPage;
+
+    thead {
+        tr {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            padding: 5px 10px;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    tbody {
+        tr:nth-child(odd) {
+            background-color: #f3f3f3;
+        }
+        tr {
+            border-bottom: 1px solid #ddd;
+            height: 45px;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            td.episodeTitle {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+            }
+        }
+    }
+
+    tr {
+        a {
+            color: $primary;
+        }
+        a:hover {
+            color: $text-dark;
+        }
+    }
+}

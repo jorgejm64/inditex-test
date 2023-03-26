@@ -1,7 +1,12 @@
 //React
 import { useEffect, useState } from "react";
+
+
+//Components
 import PodcastBox from "../../components/PodcastBox/PodcastBox";
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
+
+//Utils
 import { setLocalStorageWithExpiry, getLocalStorage } from "../../utils/localStorage";
 
 //Styles
@@ -17,16 +22,17 @@ const HomePage = () => {
         "https://cors-anywhere.herokuapp.com/https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
 
     useEffect(() => {
+        //Fetching podcasts
         setLoading(true);
-        if (getLocalStorage("podcast")) {
-            setData(getLocalStorage("podcast"));
+        if (getLocalStorage("podcasts")) {
+            setData(getLocalStorage("podcasts"));
             setLoading(false);
         } else {
             fetch(apiUrlAllPodcast)
                 .then((response) => response.json())
                 .then((data) => {
                     setData(data);
-                    setLocalStorageWithExpiry("podcast", data, 86400000);
+                    setLocalStorageWithExpiry("podcasts", data, 86400000);
                 })
                 .catch((e) => {
                     console.log(e);
