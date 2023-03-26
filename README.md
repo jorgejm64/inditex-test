@@ -5,7 +5,7 @@
 
 
 
-## Setup
+## How to Setup
 
 You must accept CORS-ORIGIN using this link https://cors-anywhere.herokuapp.com/ to fetch data from the API.
 
