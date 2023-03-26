@@ -1,12 +1,12 @@
-
 //Styles
-import styles from "./HomePage.module.scss"
-
+import styles from "./HomePage.module.scss";
 
 const HomePage = () => {
+    return (
+        <section className={styles.homePage}>
+            <h1>HomePage</h1>
+        </section>
+    );
+};
 
-    return <h1>HomePage</h1>
-
-}
-
-export default HomePage()
+export default HomePage();
