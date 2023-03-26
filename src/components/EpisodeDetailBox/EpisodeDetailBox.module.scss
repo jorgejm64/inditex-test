@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+div.episodeDetail {
+    border-spacing: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: $floatingDetailPage;
+
+    div.title {
+        font-weight: bold;
+        font-size: 25px;
+        p {
+            margin: 0;
+        }
+    }
+    div.description {
+        font-style: italic;
+    }
+
+    audio {
+        width: 100%;
+    }
+}

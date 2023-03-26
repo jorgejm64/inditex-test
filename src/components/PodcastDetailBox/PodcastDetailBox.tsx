@@ -19,7 +19,7 @@ const PodcastDetailBox = ({ allPodcast, id }: any) => {
                     <Link to={"/podcast/" + id}>{podcast["im:artist"].label}</Link>
                 </p>
             </div>
-            <div className={styles.descripction}>
+            <div className={styles.description}>
                 <span>Description</span>
                 <p>{podcast.summary.label}</p>
             </div>

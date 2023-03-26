@@ -1,0 +1,11 @@
+section.episodeDetails {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    .episodesWrapper {
+        width: 100%;
+    }
+}
