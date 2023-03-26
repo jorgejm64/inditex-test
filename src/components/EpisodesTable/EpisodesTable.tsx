@@ -16,21 +16,24 @@ const EpisodesTable = ({ episodeData, podcastId }: any) => {
                 </tr>
             </thead>
             <tbody>
-                {episodeData.map((episode: any, idx: number) => (
-                    <tr key={idx}>
-                        <td className={styles.episodeTitle} style={{ width: "70%" }}>
-                            <Link to={`/podcast/${podcastId}/episode/${episode.trackId}`}>
-                                {episode.trackName}
-                            </Link>
-                        </td>
-                        <td>{convertToFormatDate(episode.releaseDate)}</td>
-                        <td>{milisecToFormat(episode.trackTimeMillis)}</td>
-                    </tr>
-                ))}
+                {episodeData.map((episode: any, idx: number) =>
+                    // idx === 0 ? (
+                    //     ""
+                    // ) : (
+                        <tr key={idx}>
+                            <td className={styles.episodeTitle} style={{ width: "70%" }}>
+                                <Link to={`/podcast/${podcastId}/episode/${episode.trackId}`}>
+                                    {episode.trackName}
+                                </Link>
+                            </td>
+                            <td>{convertToFormatDate(episode.releaseDate)}</td>
+                            <td>{milisecToFormat(episode.trackTimeMillis)}</td>
+                        </tr>
+                    )
+                }
             </tbody>
         </table>
     );
 };
 
-
-export default EpisodesTable
+export default EpisodesTable;
