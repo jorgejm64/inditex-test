@@ -1,0 +1,63 @@
+li.podcastBox {
+    list-style: none;
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    margin-top: 150px;
+
+    article {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+
+        .image {
+            border-radius: 50%;
+            overflow: hidden;
+            border-radius: 50%;
+            overflow: hidden;
+            height: 170px;
+            position: absolute;
+            top: -130px;
+
+            img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: inherit;
+            }
+        }
+        div.infoWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            a {
+                .title {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    p {
+                        font-weight: bold;
+                        text-align: center;
+                        margin: 0;
+                    }
+                }
+
+                .author {
+                    p {
+                        margin: 0;
+                        color: #7a7a7a;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

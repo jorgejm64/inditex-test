@@ -1,5 +1,6 @@
 //React
 import { useEffect, useState } from "react";
+import PodcastBox from "../../components/PodcastBox/PodcastBox";
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
 
 //Styles
@@ -25,7 +26,6 @@ const HomePage = () => {
             })
             .finally(() => setLoading(false));
     }, []);
-
 
     function search(data: any) {
         return data.filter(
@@ -65,7 +65,7 @@ const HomePage = () => {
                 </div>
                 <ul className={styles.podcastWrapper}>
                     {search(data?.feed.entry).map((podcast: any, idx: number) => (
-                        <li key={idx}>{podcast.title.label}</li>
+                        <PodcastBox podcast={podcast} key={idx} />
                     ))}
                 </ul>
             </section>
