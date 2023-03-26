@@ -1,4 +1,4 @@
-export function setLocalStorage(key: string, data: any, ttl: any) {
+export function setLocalStorageWithExpiry(key: string, data: any, ttl: any) {
     const now = new Date();
 
     const item = {

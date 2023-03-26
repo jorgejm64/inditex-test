@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import PodcastBox from "../../components/PodcastBox/PodcastBox";
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
+import { setLocalStorageWithExpiry, getLocalStorage } from "../../utils/localStorage";
 
 //Styles
 import styles from "./HomePage.module.scss";
@@ -17,14 +18,22 @@ const HomePage = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(apiUrlAllPodcast)
-            .then((response) => response.json())
-            .then((data) => setData(data))
-            .catch((e) => {
-                console.log(e);
-                setError(e);
-            })
-            .finally(() => setLoading(false));
+        if (getLocalStorage("podcast")) {
+            setData(getLocalStorage("podcast"));
+            setLoading(false);
+        } else {
+            fetch(apiUrlAllPodcast)
+                .then((response) => response.json())
+                .then((data) => {
+                    setData(data);
+                    setLocalStorageWithExpiry("podcast", data, 86400000);
+                })
+                .catch((e) => {
+                    console.log(e);
+                    setError(e);
+                })
+                .finally(() => setLoading(false));
+        }
     }, []);
 
     function search(data: any) {
