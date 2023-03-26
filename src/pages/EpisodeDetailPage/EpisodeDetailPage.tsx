@@ -10,13 +10,10 @@ import { getLocalStorage, setLocalStorageWithExpiry } from "../../utils/localSto
 //Components
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
 
-
 //Styles
-import styles from "./EpisodeDetailPage.module.scss"
+import styles from "./EpisodeDetailPage.module.scss";
 import PodcastDetailBox from "../../components/PodcastDetailBox/PodcastDetailBox";
 import EpisodeDetailBox from "../../components/EpisodeDetailBox/EpisodeDetailBox";
-
-
 
 const EpisodeDetailPage = (): any => {
     const params = useParams();
@@ -63,20 +60,20 @@ const EpisodeDetailPage = (): any => {
             if (getLocalStorage("podcasts")) {
                 setPodcastData(getLocalStorage("podcasts"));
                 setLoadingPodcasts(false);
+            } else {
+                fetch(apiUrlAllPodcast)
+                    .then((response) => response.json())
+                    .then((podcastData) => {
+                        setPodcastData(podcastData);
+                        setLocalStorageWithExpiry("podcasts", podcastData, 86400000);
+                    })
+                    .finally(() => setLoadingPodcasts(false));
             }
-            fetch(apiUrlAllPodcast)
-                .then((response) => response.json())
-                .then((podcastData) => {
-                    setPodcastData(podcastData);
-                    setLocalStorageWithExpiry("podcasts", podcastData, 86400000);
-                })
-                .finally(() => setLoadingPodcasts(false));
         } catch (e: any) {
             setError(e);
             console.log(e);
             setLoadingEpisodes(false);
             setLoadingPodcasts(false);
-            throw(e)
         }
     }, []);
 
@@ -91,7 +88,7 @@ const EpisodeDetailPage = (): any => {
             </div>
         );
     }
-    if(!loadingEpisodes && !loadingPodcasts && episodeData && podcastData && !error) {
+    if (!loadingEpisodes && !loadingPodcasts && episodeData && podcastData && !error) {
         return (
             <section className={styles.episodeDetails}>
                 <PodcastDetailBox allPodcast={podcastData?.feed.entry} id={params.podcastId} />
@@ -100,7 +97,6 @@ const EpisodeDetailPage = (): any => {
                 </div>
             </section>
         );
-
     }
 };
 

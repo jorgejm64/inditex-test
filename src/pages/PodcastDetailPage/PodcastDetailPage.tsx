@@ -60,14 +60,16 @@ const PodcastDetailPage = (): any => {
             if (getLocalStorage("podcasts")) {
                 setPodcastData(getLocalStorage("podcasts"));
                 setLoadingPodcasts(false);
+            } else {
+                fetch(apiUrlAllPodcast)
+                    .then((response) => response.json())
+                    .then((podcastData) => {
+                        setPodcastData(podcastData);
+                        setLocalStorageWithExpiry("podcasts", podcastData, 86400000);
+                    })
+                    .finally(() => setLoadingPodcasts(false));
+
             }
-            fetch(apiUrlAllPodcast)
-                .then((response) => response.json())
-                .then((podcastData) => {
-                    setPodcastData(podcastData);
-                    setLocalStorageWithExpiry("podcasts", podcastData, 86400000);
-                })
-                .finally(() => setLoadingPodcasts(false));
         } catch (e: any) {
             setError(e);
             console.log(e);
