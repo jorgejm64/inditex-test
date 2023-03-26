@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+section.homePage {
+    width: 100%;
+    max-width: 1300px;
+
+    .searchWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 40px;
+
+        .podcastTotal {
+            padding: 5px 10px;
+            background-color: $primary;
+            color: #fff;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+        label {
+            input {
+                height: 35px;
+                border-radius: 10px;
+                border: 1px solid #9b9b9b;
+                padding: 8px;
+            }
+        }
+    }
+
+    ul.podcastWrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 80px 50px;
+        grid-auto-rows: minmax(200px, auto);
+        padding: 0;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
