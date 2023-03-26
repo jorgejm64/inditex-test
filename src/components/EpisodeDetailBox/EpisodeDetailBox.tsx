@@ -4,7 +4,7 @@ import styles from "./EpisodeDetailBox.module.scss";
 const EpisodeDetailBox = ({ allEpisode, id }: any) => {
     
     var episode = allEpisode.find((item: any) => item.trackId == Number(id));
-    console.log(episode)
+
     return (
         <div className={styles.episodeDetail}>
             <div className={styles.title}>
