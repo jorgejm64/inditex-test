@@ -1,5 +1,6 @@
 {
   "name": "inditex-test",
+  "author": "Jorge Jimenez Mejias",
   "private": true,
   "version": "0.0.0",
   "type": "module",

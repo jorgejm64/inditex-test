@@ -17,9 +17,9 @@ const EpisodesTable = ({ episodeData, podcastId }: any) => {
             </thead>
             <tbody>
                 {episodeData.map((episode: any, idx: number) =>
-                    // idx === 0 ? (
-                    //     ""
-                    // ) : (
+                    idx === 0 ? (
+                        ""
+                    ) : (
                         <tr key={idx}>
                             <td className={styles.episodeTitle} style={{ width: "70%" }}>
                                 <Link to={`/podcast/${podcastId}/episode/${episode.trackId}`}>
@@ -30,7 +30,7 @@ const EpisodesTable = ({ episodeData, podcastId }: any) => {
                             <td>{milisecToFormat(episode.trackTimeMillis)}</td>
                         </tr>
                     )
-                }
+                )}
             </tbody>
         </table>
     );
