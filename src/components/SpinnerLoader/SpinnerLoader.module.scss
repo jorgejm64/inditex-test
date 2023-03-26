@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+
+div.loaderSpinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 999;
+}
+.loaderSpinner:after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 6px solid $primary;
+    border-color: $primary transparent $primary transparent;
+    animation: loaderSpinner 1.2s linear infinite;
+}
+
+@keyframes loaderSpinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
